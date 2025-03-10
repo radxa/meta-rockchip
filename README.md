@@ -20,7 +20,7 @@ In order to build an image, you need to download some layers.
 
 ```
 ~ $ mkdir yocto; cd yocto
-~/yocto $ git clone git://git.openembedded.org/bitbake -b master
+~/yocto $ git clone git://git.openembedded.org/bitbake -b 2.8
 ~/yocto $ git clone git://git.openembedded.org/openembedded-core -b scarthgap
 ~/yocto $ git clone git://git.yoctoproject.org/meta-arm -b scarthgap
 ~/yocto $ git clone git://git.openembedded.org/meta-openembedded -b scarthgap
@@ -41,7 +41,7 @@ For example:
 ```
 # conf/bblayers.conf
 BBLAYERS ?= " \
-  ${TOPDIR}/../openembedded-core/meta\
+  ${TOPDIR}/../openembedded-core/meta \
   ${TOPDIR}/../meta-arm/meta-arm \
   ${TOPDIR}/../meta-arm/meta-arm-toolchain \
   ${TOPDIR}/../meta-openembedded/meta-oe \
