@@ -83,8 +83,8 @@ do_install:append () {
 			${D}${includedir}/EGL/eglplatform.h
 	fi
 
-	install -d ${D}/lib/firmware
-	install -m 0755 ${WORKDIR}/g25p0-00eac0.mali_csffw.bin ${D}/lib/firmware/g25p0-00eac0.mali_csffw.bin
+	install -d ${D}${libdir}/firmware
+	install -m 0755 ${WORKDIR}/g25p0-00eac0.mali_csffw.bin ${D}${libdir}/firmware/g25p0-00eac0.mali_csffw.bin
 }
 
 INSANE_SKIP:${PN} = "already-stripped ldflags dev-so textrel buildpaths"
