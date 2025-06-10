@@ -21,3 +21,5 @@ SRC_URI:append = " ${@bb.utils.contains('IMAGE_FSTYPES', 'ext4', \
 		   'file://${THISDIR}/files/ext4.cfg', \
 		   '', \
 		   d)}"
+
+EXTRA_OEMAKE += "KCFLAGS=-Wno-error"
