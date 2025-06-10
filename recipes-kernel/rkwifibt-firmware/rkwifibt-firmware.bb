@@ -9,8 +9,8 @@ LIC_FILES_CHKSUM = "file://${RKBASE}/licenses/LICENSE.rockchip;md5=d63890e209bf0
 
 inherit local-git
 
-SRCREV = "f4b13f7af66eaa023f942150fb3b1c6e79ddb90e"
-SRC_URI = "git://github.com/JeffyCN/mirrors.git;protocol=https;branch=rkwifibt;"
+SRCREV = "4c7ba27cf3306fd6531e1cef3146adfd383b0cba"
+SRC_URI = "git://github.com/radxa/rkwifibt.git;protocol=https;branch=develop;"
 
 S = "${WORKDIR}/git"
 
@@ -18,6 +18,10 @@ inherit allarch deploy
 
 do_install() {
 	install -d ${D}/${nonarch_base_libdir}/firmware/rtlbt/
+	install -d ${D}/${nonarch_base_libdir}/firmware/aic8800D80/
+
+	cp -r ${S}/firmware/aic/usb/aic8800D80/* \
+		${D}/${nonarch_base_libdir}/firmware/aic8800D80/
 
 	cp -u $(find ${S}/firmware/ -type f) \
 		${D}/${nonarch_base_libdir}/firmware/
@@ -48,6 +52,7 @@ PACKAGES =+ " \
 	${PN}-ap6398s-wifi \
 	${PN}-ap6398s-bt \
 	${PN}-rtl8723ds-bt \
+	${PN}-aic8800d80-usb \
 "
 
 FILES:${PN}-ap6181-wifi = " \
@@ -131,6 +136,22 @@ FILES:${PN}-ap6398s-bt = " \
 FILES:${PN}-rtl8723ds-bt = " \
 	${nonarch_base_libdir}/firmware/rtlbt/rtl8723d_config \
 	${nonarch_base_libdir}/firmware/rtlbt/rtl8723d_fw \
+"
+
+FILES:${PN}-aic8800d80-usb = " \
+	${nonarch_base_libdir}/firmware/aic8800D80/aic_powerlimit_8800d80.txt \
+	${nonarch_base_libdir}/firmware/aic8800D80/aic_userconfig_8800d80.txt \
+	${nonarch_base_libdir}/firmware/aic8800D80/calibmode_8800d80.bin \
+	${nonarch_base_libdir}/firmware/aic8800D80/fmacfw_8800d80_h_u02.bin \
+	${nonarch_base_libdir}/firmware/aic8800D80/fmacfw_8800d80_h_u02_ipc.bin \
+	${nonarch_base_libdir}/firmware/aic8800D80/fmacfw_8800d80_u02.bin \
+	${nonarch_base_libdir}/firmware/aic8800D80/fmacfw_8800d80_u02_ipc.bin \
+	${nonarch_base_libdir}/firmware/aic8800D80/fw_adid_8800d80_u02.bin \
+	${nonarch_base_libdir}/firmware/aic8800D80/fw_ble_scan_ad_filter.bin \
+	${nonarch_base_libdir}/firmware/aic8800D80/fw_patch_8800d80_u02.bin \
+	${nonarch_base_libdir}/firmware/aic8800D80/fw_patch_8800d80_u02_ext0.bin \
+	${nonarch_base_libdir}/firmware/aic8800D80/fw_patch_table_8800d80_u02.bin \
+	${nonarch_base_libdir}/firmware/aic8800D80/lmacfw_rf_8800d80_u02.bin \
 "
 
 FILES:${PN} = "*"
