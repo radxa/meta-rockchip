@@ -10,9 +10,9 @@ LIC_FILES_CHKSUM = "file://NOTICE;md5=9645f39e9db895a4aa6e02cb57294595"
 inherit local-git
 
 SRC_URI = " \
-	git://github.com/JeffyCN/mirrors.git;protocol=https;branch=alsa-config; \
+	git://gitlab.com/rockchip_linux_sdk_6.1/linux/external/alsa-config.git;protocol=https;branch=master; \
 "
-SRCREV = "1e0c4b5382b84ed629b1ca9e40c814103b92ee93"
+SRCREV = "5529257039c41955724c1069796f5cb7b2015c77"
 S = "${WORKDIR}/git"
 
 inherit meson
