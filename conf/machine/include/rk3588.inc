@@ -10,6 +10,7 @@ PREFERRED_VERSION_linux-rockchip := "6.1%"
 LINUXLIBCVERSION := "6.1-custom%"
 
 KBUILD_DEFCONFIG := "rk3588_linux_defconfig"
+MACHINEOVERRIDES .= ":rk3588"
 
 MALI_GPU := "valhall-g610"
 MALI_VERSION := "g13p0"
